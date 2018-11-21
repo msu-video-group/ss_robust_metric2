@@ -69,7 +69,7 @@ for i = 1:in.skip:num_frames
    end
    frame_sm_bins = discretize(frame_sm, in.nbins);
    
-   dg = dg + hist(frame_sm_bins(:), in.nbins)';
+   dg = dg + histcounts(frame_sm_bins(:), 0:in.nbins)';
    bc = bc + get_sum_under_slices(cp_img, frame_sm_bins, in.nbins);
    sum_gt_per_bin = sum_gt_per_bin + get_sum_under_slices(frame_gt, frame_sm_bins, in.nbins);
    
